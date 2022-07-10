@@ -22,7 +22,7 @@ jobs:
         cd ..
     - name: RunTests
       run: |
-        cd tests
+        cd tests_ref
         python ./test.py
       env:
         CC: gcc-9
@@ -46,7 +46,7 @@ jobs:
         cd ..
     - name: RunTests
       run: |
-        cd tests
+        cd tests_ref
         python ./test.py
       env:
         CC: clang-8
