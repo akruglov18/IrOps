@@ -20,6 +20,10 @@ jobs:
         mkdir build
         cd build
         cd ..
+    - name: RunTests
+      run: |
+        cd tests
+        python ./test.py
       env:
         CC: gcc-9
         CXX: g++-9
@@ -40,6 +44,10 @@ jobs:
         mkdir build
         cd build
         cd ..
+    - name: RunTests
+      run: |
+        cd tests
+        python ./test.py
       env:
         CC: clang-8
         CXX: clang++-8
