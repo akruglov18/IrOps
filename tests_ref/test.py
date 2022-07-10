@@ -8,4 +8,4 @@ print(t)
 
 basedir = os.path.abspath(__file__)
 
-np.savetxt(basedir + '\\build\\test_ref\\test.txt', t.numpy())
+np.savetxt(basedir + '\\build\\tests_ref\\test.txt', t.numpy())
