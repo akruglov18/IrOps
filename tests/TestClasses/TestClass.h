@@ -1,7 +1,7 @@
 #ifndef _TEST_CLASS_H_
 #define _TEST_CLASS_H_
 
-#include "TestBase.h"
+#include "../TestBase/TestBase.h"
 
 namespace Tests {
 

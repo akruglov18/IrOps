@@ -3,18 +3,19 @@
 
 #include <gtest/gtest.h>
 #include <unordered_map>
+#include "../Storage/TestsStorage.h"
 
 namespace Tests {
 
 template<typename T>
-class TestBase : public ::testing::Test<T> {
+class TestBase : public ::testing::TestWithParam<T> {
 public:
-    void Run() final {
+    virtual void Run() final {
         auto start = std::clock();
         runBody();
         auto end = std::clock();
         std::string testName(::testing::UnitTest::GetInstance()->current_test_info()->name());
-        testsClock[testName] = clock;
+        TestsStorage::testsClock[testName] = clock;
     }
 
 protected:

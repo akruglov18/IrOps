@@ -2,6 +2,7 @@
 #define _TESTS_STORAGE_H
 
 #include <unordered_map>
+#include <string>
 
 namespace Tests {
 

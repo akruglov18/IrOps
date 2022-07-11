@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
-#include "TestBase.h"
-#include "TestsStorage.h"
-#include "Utils.h"
+#include "TestBase/TestBase.h"
+#include "Storage/TestsStorage.h"
+#include "Utils/Utils.h"
 
 int main(int argc, char** argv) {
     ::testing::InitGoogleTest(&argc, argv);
