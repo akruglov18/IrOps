@@ -7,7 +7,9 @@ void TestClass::runBody() {
     auto params = GetParam();
     int value;
     std::tie (value) = params;
-    std::ifstream in("../../build/tests_ref/tests.txt");
+    std::string path = Tests::TestsStorage::buildPath + "tests_ref/tests.txt";
+    std::cout << path << "\n";
+    std::ifstream in(path);
     bool isOpen = in.is_open();
     ASSERT_TRUE(isOpen) << "Can't open file in test: " << ::testing::UnitTest::GetInstance()->current_test_info()->name();
     if (isOpen) {
