@@ -1,5 +1,7 @@
 #include "Utils.h"
 #include <fstream>
+#include <algorithm>
+#include <iostream>
 
 namespace Utils {
 
@@ -17,9 +19,11 @@ bool saveToFile(const std::unordered_map<std::string, int>& map, const std::stri
 std::string getBuildDirPath() {
     char* env = std::getenv("BUILD_DIR");
     if (env != nullptr) {
-        return std::string(env) + "/build/";
+        auto str = std::string(env);
+        std::cout << str << "\n";
+        return str;
     }
-    return std::string("C:/Users/skytt/Desktop/OV/IrOps/build/");
+    return std::string();
 }
 
 }

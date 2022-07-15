@@ -22,6 +22,7 @@ jobs:
     - name: RunReferenceTests
       run: |
         mkdir build
+        export BUILD_DIR=$GITHUB_WORKSPACE/build/
         cd build
         mkdir tests_ref
         cd ../tests_ref
@@ -37,6 +38,7 @@ jobs:
         cd ..
     - name: RunTests
       run: |
+        export BUILD_DIR=$GITHUB_WORKSPACE/build/
         cd build/bin
         ./Tests
       env:
@@ -57,6 +59,7 @@ jobs:
     - name: RunReferenceTests
       run: |
         mkdir build
+        export BUILD_DIR=$GITHUB_WORKSPACE/build/
         cd build
         mkdir tests_ref
         cd ../tests_ref
@@ -72,6 +75,7 @@ jobs:
         cd ..
     - name: RunTests
       run: |
+        export BUILD_DIR=$GITHUB_WORKSPACE/build/
         cd build/bin
         ./Tests
       env:
