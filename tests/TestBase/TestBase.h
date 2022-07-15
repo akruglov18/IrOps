@@ -10,12 +10,12 @@ namespace Tests {
 template<typename T>
 class TestBase : public ::testing::TestWithParam<T> {
 public:
-    virtual void Run() final {
+    void Run() {
         auto start = std::clock();
         runBody();
         auto end = std::clock();
         std::string testName(::testing::UnitTest::GetInstance()->current_test_info()->name());
-        TestsStorage::testsClock[testName] = clock;
+        TestsStorage::testsClock[testName] = (end - start);
     }
 
 protected:
