@@ -3,5 +3,6 @@
 namespace Tests {
 
 std::unordered_map<std::string, int> TestsStorage::testsClock;
+std::string TestsStorage::buildPath;
 
 }

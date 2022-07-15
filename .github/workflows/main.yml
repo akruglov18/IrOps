@@ -16,15 +16,26 @@ jobs:
         pip3 install torch==1.5.1+cpu torchvision==0.6.1+cpu -f https://download.pytorch.org/whl/torch_stable.html
     - name: Update submodules
       run: git submodule update --init --recursive
-    - name: Build
+    - name: RunReferenceTests
       run: |
         mkdir build
         cd build
+        mkdir tests_ref
+        cd ../tests_ref
+        python ./test.py
+        cd ../build/tests_ref
+        ls -la
+        cd ../..
+    - name: Build
+      run: |
+        cd build
+        cmake ..
+        make -j4
         cd ..
     - name: RunTests
       run: |
-        cd tests_ref
-        python ./test.py
+        cd build/bin
+        ./Tests
       env:
         CC: gcc-9
         CXX: g++-9

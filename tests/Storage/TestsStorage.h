@@ -9,6 +9,7 @@ namespace Tests {
 class TestsStorage {
 public:
     static std::unordered_map<std::string, int> testsClock;
+    static std::string buildPath;
 };
 
 }

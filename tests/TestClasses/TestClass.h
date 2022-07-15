@@ -2,12 +2,13 @@
 #define _TEST_CLASS_H_
 
 #include "../TestBase/TestBase.h"
+#include <tuple>
 
 namespace Tests {
 
-class TestClass : public TestBase<int> {
+class TestClass : public TestBase<std::tuple<int>> {
 protected:
-    void runBody() override;
+    virtual void runBody() override;
 };
 
 }
