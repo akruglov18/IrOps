@@ -55,9 +55,11 @@ int main(int argc, char** argv) {
         } else {
             double diff = static_cast<double>(it->second - new_value.second) / it->second;
             if (diff >= 0) {
-                changed_tests.push_back(new_value.first + " improves on: " + std::to_string(diff * 100) + "%");
+                changed_tests.push_back(new_value.first + " improves on: " + std::to_string(diff * 100) + "%, New value: " 
+                                        + std::to_string(new_value.second) + ", Old Value: " + std::to_string(it->second));
             } else {
-                changed_tests.push_back(new_value.first + " slowing down on: " + std::to_string(-diff * 100) + "%");
+                changed_tests.push_back(new_value.first + " slowing down on: " + std::to_string(-diff * 100) + "%, New value: " 
+                                        + std::to_string(new_value.second) + ", Old Value: " + std::to_string(it->second));
             }
             values_ref.erase(it);
         }
