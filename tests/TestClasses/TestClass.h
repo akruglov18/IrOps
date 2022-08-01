@@ -9,6 +9,9 @@ namespace Tests {
 class TestClass : public TestBase<std::tuple<int>> {
 protected:
     virtual void runBody() override;
+    virtual void validate() override;
+
+    std::vector<int> data;
 };
 
 }

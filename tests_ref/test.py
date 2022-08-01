@@ -4,8 +4,6 @@ import os
 
 t = torch.IntTensor([[1, 2, 3], [4, 5, 6]])
 
-print(t)
-
 buildDir = os.environ.get('BUILD_DIR')
 
 np.savetxt(buildDir + 'tests_ref/tests.txt', t.numpy(), fmt="%d")

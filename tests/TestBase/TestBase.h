@@ -14,12 +14,14 @@ public:
         auto start = std::clock();
         runBody();
         auto end = std::clock();
+        validate();
         std::string testName(::testing::UnitTest::GetInstance()->current_test_info()->name());
         TestsStorage::testsClock[testName] = (end - start);
     }
 
 protected:
     virtual void runBody() = 0;
+    virtual void validate() = 0;
 };
 
 }
