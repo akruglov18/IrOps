@@ -49,19 +49,19 @@ int main(int argc, char** argv) {
     std::vector<std::string> deleted_tests;
     std::vector<std::string> changed_tests;
     for (auto new_value : values_new) {
-        auto it = values_ref.find(new_value.first);
-        if (it == values_ref.end()) {
+        auto old_value = values_ref.find(new_value.first);
+        if (old_value == values_ref.end()) {
             new_tests.push_back(new_value.first);
         } else {
-            double diff = static_cast<double>(it->second - new_value.second) / it->second;
+            double diff = static_cast<double>(old_value->second - new_value.second) / old_value->second;
             if (diff >= 0) {
                 changed_tests.push_back(new_value.first + " improves on: " + std::to_string(diff * 100) + "%, New value: " 
-                                        + std::to_string(new_value.second) + ", Old Value: " + std::to_string(it->second));
+                                        + std::to_string(new_value.second) + ", Old Value: " + std::to_string(old_value->second));
             } else {
                 changed_tests.push_back(new_value.first + " slowing down on: " + std::to_string(-diff * 100) + "%, New value: " 
-                                        + std::to_string(new_value.second) + ", Old Value: " + std::to_string(it->second));
+                                        + std::to_string(new_value.second) + ", Old Value: " + std::to_string(old_value->second));
             }
-            values_ref.erase(it);
+            values_ref.erase(old_value);
         }
     }
     for (const auto& value : values_ref) {
