@@ -64,8 +64,11 @@ struct TensorIterator {
     TensorIterator& operator=(const TensorIterator&) = default;
     ~TensorIterator() = default;
 
-    reference operator*() const { return *ptr; }
+    const reference operator*() const { return *ptr; }
+    reference operator*() { return *ptr; }
     pointer operator->() const { return ptr; }
+
+
 
     TensorIterator& operator++() { ptr++; return *this; }
     TensorIterator operator++(int) { auto tmp = *this; ++(*this); return tmp; }
@@ -87,7 +90,7 @@ struct TensorIterator {
     bool operator>=(const TensorIterator& other) const { return !(*this < other); }
     TensorIterator operator+(difference_type n) const { auto it = *this; it += n; return it; }
     TensorIterator operator-(difference_type n) const { auto it = *this; it -= n; return it; }
-    difference_type operator-(const TensorIterator& other) { return std::distance(ptr, other.ptr); }
+    difference_type operator-(const TensorIterator& other) const { return std::distance(ptr, other.ptr); }
 
 private:
     pointer ptr;
